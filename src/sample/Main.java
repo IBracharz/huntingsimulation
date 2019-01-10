@@ -8,59 +8,167 @@
  */
 package sample;
 
-import environment.Cell;
+import environment.*;
 
+import environment.Cell;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
-import javafx.scene.Parent;
+import javafx.geometry.Orientation;
 import javafx.scene.Scene;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.TilePane;
-import javafx.scene.layout.StackPane;
+import javafx.scene.control.*;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
-import javafx.event.EventHandler;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Button;
+
+import javax.xml.soap.Text;
 
 public class Main extends Application {
 
+
+    //starting point of application
     public static void main(String[] args) {
         launch(args);
     }
 
     @Override
-    public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hunting Simulatior");
+    public void start(Stage primaryStage) throws Exception {
 
-        //adding a button
-        Button startButton = new Button("Start");
+        primaryStage.setTitle("Simulation");
 
-        //adding a gridpane layout
-        TilePane pane = new TilePane();
+        //-----------------------Main Pane----------------------------//
+        BorderPane pane = new BorderPane();
 
-        pane.setPadding(new Insets(10,10,10,10));
-        pane.setHgap(20);
-        pane.setVgap(30);
+        //----------------------Statistics and Input------------------//
+        SplitPane rightPane =  new SplitPane();
 
-        pane.getChildren().add(startButton);
+        //Statistics Pane
+        VBox statPane = new VBox();
+        Label statLabel = new Label("Statstics");
 
-        //creating an array of 3 by 3 objects of type cell
-        Cell cells[][] = new Cell[3][3];
+        statPane.getChildren().add(statLabel);
 
-        for(int i = 0; i < cells.length; i++) {
-            for(int j = 0; j < cells.length; j++) {
+        //Input Pane
+        VBox inputPane = new VBox();
+        Label inputLabel = new Label("Inputs");
+
+        TextField textOne = new TextField("X by Y Cells");
+        TextField textTwo = new TextField("No. of hunters");
+        TextField textThree = new TextField("No. of prey");
+
+        inputPane.getChildren().addAll(inputLabel,textOne,textTwo,textThree);
 
 
+        rightPane.getItems().addAll(statPane,inputPane);
+        rightPane.setOrientation(Orientation.VERTICAL);
+        rightPane.setDividerPosition(1,0.5);
+
+
+        TextField text1= new TextField("");
+
+        //----------------------Simulation Pane----------------------//
+
+        TilePane centerPane = new TilePane();
+
+        Board board = new Board();
+
+        board.initBoard();
+
+
+        for(Cell[] a: board.getCells()){
+            for(Cell elem: board.getCellarray()){
+                centerPane.getChildren().add(board.drawBoard());
             }
         }
 
-        Scene scene = new Scene(pane, 300,250);
+
+        //-------------------Simulation Control Pane-------------------//
+        HBox bottomPane = new HBox();
+
+        //button to start simulation
+        Button startButton = new Button("Start");
+        startButton.setOnAction(event -> {
+
+        });
+
+        //Button to pause Simulation
+        Button pauseButton = new Button("Pause");
+        startButton.setOnAction(event -> {
+
+        });
+
+        Button iterateButton = new Button("Next Gen");
+        startButton.setOnAction(event -> {
+
+        });
+
+        Button stopButton = new Button("Stop");
+
+
+        bottomPane.getChildren().addAll(startButton,pauseButton,iterateButton,stopButton);
+
+        //------------------------Putting Panes Together--------------------//
+
+        pane.setCenter(centerPane);
+        pane.setRight(rightPane);
+        pane.setBottom(bottomPane);
+
+
+        Scene scene = new Scene(pane,330,250);
+
         primaryStage.setScene(scene);
         primaryStage.show();
     }
-
-
-
 }
+
+//entire window = stage
+//content inside window = scene | need more than one scene.
+
+
+
+        /*    primaryStage.setTitle("Hunting Simulator");
+        //underlying pane for everything
+        AnchorPane root = new AnchorPane();
+        AnchorPane field = new AnchorPane();
+
+
+
+        Button startButton = new Button("Start");
+        Button stopButton = new Button("Stop");
+        Button iterateButton= new Button("Next Iteration");
+
+        SplitPane statAndInputRoot = new SplitPane(startButton,stopButton,iterateButton);
+
+        root.getChildren().addAll(field,statAndInputRoot);
+
+
+
+
+        Scene scene = new Scene(root, 300,250, Color.WHITE);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+
+
+    }
+}
+
+
+        //load image
+        Image image = new Image("images/rabbit.jpeg",true);
+
+        ImageView iv1 = new ImageView();
+        iv1.setImage(image);
+
+              pane.getChildren().add(iv1);
+        */        //Start Button
+
+    /*
+    this is how lamba expressions work are used
+        Button startButton = new Button("Start");
+        startButton.setOnAction(event -> { //LAMBDA EXPRESSION!
+                window.setScene(simulationScene);
+                });
+
+                        //whenever X is hit call our close method
+        window.setOnCloseRequest(event -> {
+            event.consume();
+            closeProgram();
+        });
+*/
