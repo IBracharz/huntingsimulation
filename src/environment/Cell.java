@@ -1,57 +1,35 @@
 package environment;
 
-import agents.*;
+//The cell contains our agent, agents can move independent from cells with a defined speed
+//state based simulation
+
 
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Cell {
+public class Cell extends AbstractCell {
 
-    //TODO: finish cell programming
-
-    private int state;
-
-    Rectangle drawRec() {
-        Rectangle rec = new Rectangle(10, 10, Color.BLACK);
-        rec.setStroke(Color.BLACK);
-
-        return rec;
-    }
-
+    private int currentState = 0;
     private int nextState;
 
-    public void setState(int state) {
-        this.state = state;
+
+    public int getCurrentState() {
+        return currentState;
     }
 
-    public int getState() {
-        return state;
+    public void setCurrentState(int currentState) {
+        this.currentState = currentState;
+    }
+
+    //calculate the next state according to rules
+    public void calulateNextState(){
+
+    }
+
+    @Override
+    public Rectangle getRec(){
+        Rectangle rec = new Rectangle(10,10, Color.BLACK);
+        rec.setStroke(Color.BLACK);
+        return rec;
     }
 }
-
-
-
-/*
-        if(this.state==0){
-
-                }
-                else if (this.state==1){
-                rec.setFill(Color.BROWN);
-                }
-                else if (this.state==2){
-                rec.setFill(Color.GREEN);
-                }
-                else if (this.state==3) {
-                rec.setFill(Color.BLUE);
-                }
-                else if (this.state==4){
-                rec.setFill(Color.YELLOW);
-                }
-                else
-                {
-                rec.setFill(Color.RED);
-                }
-                return rec;
-
-                }
-*/

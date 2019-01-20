@@ -1,6 +1,6 @@
 package sample;
 
-public class Model{
+public class Model {
 
 
 

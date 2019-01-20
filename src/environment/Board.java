@@ -13,51 +13,51 @@ the cells until the stopping condition
 is met.
  */
 
+
+/*
+board lifecycle:
+1.at start of application create and init the board
+2.update board each iteration
+3.delete board when application closes.
+
+
+ */
+
+
 package environment;
 
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 
 
-//TODO:Check if board is programmed right
 public class Board {
 
-    private Cell[][] cells = new Cell[30][30];
+    private Cell[][] cells;
+    private int WIDTH;
+    private int HEIGHT;
 
-    public Board(){
+    //Default constructor
+    Board(){
     }
 
-    public void initBoard(){
+    //parameterized constructor
+    public Board(int n, int m){
+        this.cells = new Cell[n][m];
 
-        for (int i = 0; i < this.cells.length; i++) {
-            for (int j = 0; j < this.cells[i].length; j++) {
-                this.cells[i][j] = new Cell();
+        // create Cell object in each element of board
+        for (int i = 0; i < cells.length; i++) {
+            for(int j = 0; j  < cells[i].length; j++){
+                cells[i][j] = new Cell();
             }
         }
-        return;
     }
 
-    public Rectangle drawBoard(){
-
-        Rectangle rec = new Rectangle(10,10, Color.WHITE);
-        rec.setStroke(Color.BLACK);
-
-        for (int i = 0; i < this.cells.length; i++) {
-            for (int j = 0; j < this.cells[i].length; j++) {
-                return rec;
-            }
-        }
-        return rec;
-    }
-    public Cell[] getCellarray() {
-        return this.cells[0];
+    public Cell getCell(int n, int m){
+        return this.cells[n][m];
     }
 
-    public Cell[][] getCells(){
-        return this.cells;
+    public Cell[][] getBoard() {
+        return cells;
     }
 
-    public void setCells(Cell[][] cells) {
-        this.cells = cells;
-    }
+
 }
+
