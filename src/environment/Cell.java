@@ -7,11 +7,17 @@ package environment;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Cell extends AbstractCell {
+public class Cell {
 
     private int currentState = 0;
     private int nextState;
+    private Rectangle rec;
+    private double visibilityRadius;
 
+    public Cell(){
+        rec = new Rectangle(10,10,Color.WHITE);
+        rec.setStroke(Color.BLACK);
+    }
 
     public int getCurrentState() {
         return currentState;
@@ -26,10 +32,19 @@ public class Cell extends AbstractCell {
 
     }
 
-    @Override
+    public void updateRec(){
+        if(currentState==1){
+            rec.setFill(Color.BLUE);
+        }
+    }
+
+    public void setVisibilityRadius() {
+        if(this.currentState==1) {
+            this.visibilityRadius = 3;
+        }
+    }
+
     public Rectangle getRec(){
-        Rectangle rec = new Rectangle(10,10, Color.BLACK);
-        rec.setStroke(Color.BLACK);
         return rec;
     }
 }

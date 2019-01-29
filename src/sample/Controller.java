@@ -1,35 +1,46 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
-public class Controller {
+import java.net.URL;
+import java.util.ResourceBundle;
 
-    @FXML
-    private BorderPane root = new BorderPane();
+public class Controller implements Initializable {
+
+
+    public Main main;
+    @FXML private BorderPane root;
+    @FXML private TilePane tilepane;
+    @FXML private HBox hbox;
+
+
+    public HBox getHbox() {
+        return hbox;
+    }
+
+    public void setMain(Main main) {
+        this.main = main;
+    }
+
 
     public BorderPane getRoot() {
         return root;
     }
 
-    @FXML
-    private TilePane centerPane = new TilePane();
-
-    public TilePane getCenterPane() {
-        return centerPane;
-    }
-
-    public void setCenterPane(TilePane centerPane) {
-        this.centerPane = centerPane;
+    public TilePane getTilepane() {
+        return tilepane;
     }
 
     @FXML
-    private HBox bottomPane= new HBox() ;
+    private Button startButton = new Button();
 
-    @FXML
-    private VBox topVBox = new VBox();
-
-    @FXML
-    private VBox bottomVBox = new VBox();
-
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        startButton.setOnAction(event -> {
+          //  initBoard();
+        });
+    }
 }

@@ -26,13 +26,10 @@ board lifecycle:
 
 package environment;
 
-
-
 public class Board {
 
+    //a board contains a 2d array of cells
     private Cell[][] cells;
-    private int WIDTH;
-    private int HEIGHT;
 
     //Default constructor
     Board(){
@@ -45,7 +42,7 @@ public class Board {
         // create Cell object in each element of board
         for (int i = 0; i < cells.length; i++) {
             for(int j = 0; j  < cells[i].length; j++){
-                cells[i][j] = new Cell();
+                this.cells[i][j] = new Cell();
             }
         }
     }

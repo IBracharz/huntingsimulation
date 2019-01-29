@@ -30,6 +30,7 @@ public class Main extends Application {
 
     private Stage primaryStage;
     Controller controller;
+    Board board;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -38,27 +39,33 @@ public class Main extends Application {
         //show the main window
         mainWindow();
 
-        controller.getTilepane().setPrefTileWidth(10);
-        controller.getTilepane().setPrefTileHeight(10);
-
-        System.out.println(controller.getTilepane().getWidth());
-        System.out.println(controller.getTilepane().getHeight());
-
-
-
-
         //fill the board
         fillBoard();
 
+        //assign state to two cells;
+        assignStates();
     }
 
-    public void fillBoard(){
+    public void assignStates() {
+        board.getCell(30,30).setCurrentState(1);
+        board.getCell(29,31).setCurrentState(1);
+
+
+        board.getCell(30,30).updateRec();
+        board.getCell(29,31).updateRec();
+
+
+    }
+
+    public void fillBoard() {
         int a = (int) controller.getTilepane().getHeight()/10;
         int b = (int) controller.getTilepane().getWidth()/10;
         System.out.println(a+" "+b);
 
-        Board board = new Board(a,b);
+        board = new Board(a,b);
 
+        controller.getTilepane().setPrefTileWidth(10);
+        controller.getTilepane().setPrefTileHeight(10);
 
 
         for(int i = 0; i < board.getBoard().length; i++) {
@@ -69,7 +76,7 @@ public class Main extends Application {
     }
 
 
-    public void mainWindow(){
+    public void mainWindow() {
         try {
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("sample.fxml"));
             Parent root = loader.load();
