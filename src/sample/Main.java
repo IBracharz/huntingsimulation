@@ -73,7 +73,7 @@ public class Main extends Application {
 
             }
         }
-        this.board.getCellArray() = nextGen;
+        //this.board.getCellArray() = nextGen;
 
         return;
     }
