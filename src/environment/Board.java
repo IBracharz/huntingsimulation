@@ -28,8 +28,8 @@ package environment;
 
 public class Board {
 
-    //a board contains a 2d array of cells
     private Cell[][] cells;
+
 
     //Default constructor
     Board(){
@@ -53,6 +53,10 @@ public class Board {
 
     public Cell[][] getBoard() {
         return cells;
+    }
+
+    public Cell[][] getCellArray(){
+        return this.cells;
     }
 
 

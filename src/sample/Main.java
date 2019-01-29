@@ -1,11 +1,3 @@
-/*
-*
-*
-*
-*
-*
-*
- */
 package sample;
 
 import environment.Board;
@@ -16,9 +8,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -32,6 +21,7 @@ public class Main extends Application {
     Controller controller;
     Board board;
 
+
     @Override
     public void start(Stage primaryStage) throws Exception {
         this.primaryStage = primaryStage;
@@ -42,37 +32,51 @@ public class Main extends Application {
         //fill the board
         fillBoard();
 
-        //assign state to two cells;
+
     }
 
     public void createInitPopulation() {
-        for(int i = 0; i < board.getBoard().length; i++) {
-            for (int j = 0; j < board.getBoard()[i].length; j++) {
+        for(int i = 1; i < board.getBoard().length; i++) {
+            for (int j = 1; j < board.getBoard()[i].length; j++) {
                 int A = (int) (Math.random()*6+1);
-                board.getCell(i, j).setCurrentState((int) (Math.random() * 6 + 1 ));
+                board.getCell(i, j).setCurrentState((int) (Math.random() * 6 ));
                 board.getCell(i, j).updateRec();
             }
         }
+        return;
      }
 
     public void fillBoard() {
-        int a = (int) controller.getTilepane().getHeight()/10;
-        int b = (int) controller.getTilepane().getWidth()/10;
-        System.out.println(a+" "+b);
+        int a = (int) controller.getTilePane().getHeight()/10;
+        int b = (int) controller.getTilePane().getWidth()/10;
 
-        board = new Board(a,b);
+        board = new Board((int) controller.getTilePane().getWidth()/10,(int)controller.getTilePane().getHeight()/10);
 
-        controller.getTilepane().setPrefTileWidth(10);
-        controller.getTilepane().setPrefTileHeight(10);
+        controller.getTilePane().setPrefTileWidth(10);
+        controller.getTilePane().setPrefTileHeight(10);
 
 
         for(int i = 0; i < board.getBoard().length; i++) {
             for(int j = 0; j < board.getBoard()[i].length; j++) {
-                controller.getTilepane().getChildren().add(board.getCell(i,j).getRec());
+                controller.getTilePane().getChildren().add(board.getCell(i,j).getRec());
             }
         }
     }
 
+    public void calculateNextGeneration() {
+
+        Cell[][] nextGen = new Cell[(int) controller.getTilePane().getWidth()/10][(int)controller.getTilePane().getHeight()/10];
+
+        for (int i = 1; i < board.getBoard().length - 1; i++) {
+            for (int j = 1; j < board.getBoard()[i].length - 1; j++) {
+
+
+            }
+        }
+        this.board.getCellArray() = nextGen;
+
+        return;
+    }
 
     public void mainWindow() {
         try {
@@ -82,9 +86,7 @@ public class Main extends Application {
             controller = loader.getController();
             controller.setMain(this);
 
-            primaryStage.setMinWidth(850);
-            primaryStage.setMinHeight(650);
-
+            setStageSize();
 
             Scene myScene = new Scene(root);
             primaryStage.setResizable(false);
@@ -96,6 +98,12 @@ public class Main extends Application {
         }
 
 
+    }
+
+    public void setStageSize(){
+
+        primaryStage.setMinWidth(850);
+        primaryStage.setMinHeight(650);
     }
 
 

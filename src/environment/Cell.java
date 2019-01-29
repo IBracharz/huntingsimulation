@@ -9,6 +9,8 @@ import javafx.scene.shape.Rectangle;
 
 public class Cell {
 
+    //X/Y coordinate ?
+    float x,y;
     private int currentState = 0;
     private int nextState;
     private Rectangle rec;

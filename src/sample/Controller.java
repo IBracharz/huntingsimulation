@@ -16,8 +16,7 @@ public class Controller implements Initializable {
     @FXML private TilePane tilepane;
     @FXML private Button nextIteration;
     @FXML private Button startButton;
-
-
+    @FXML private Button populateAutomatonButton;
 
     public void setMain(Main main) {
         this.main = main;
@@ -28,38 +27,27 @@ public class Controller implements Initializable {
         return root;
     }
 
-    public TilePane getTilepane() {
+    public TilePane getTilePane() {
         return tilepane;
-    }
-
-    public void setNextIteration(){
-
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-      //  startButton.setOnAction(event -> {
-          //  initBoard();
-       // }
     }
 
     @FXML
     public void handleNextIteration(){
-        //calculateNewStates();
-        //updateCellColours();
-
-
-
         System.out.println("buuton geht");
+        main.calculateNextGeneration();
 
     }
 
     @FXML
     public void handleStart() {
-
-        main.createInitPopulation();
-
     }
 
-
+    @FXML
+    public void populateAutomaton(){
+        main.createInitPopulation();
+    }
 }
