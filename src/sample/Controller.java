@@ -14,12 +14,10 @@ public class Controller implements Initializable {
     public Main main;
     @FXML private BorderPane root;
     @FXML private TilePane tilepane;
-    @FXML private HBox hbox;
+    @FXML private Button nextIteration;
+    @FXML private Button startButton;
 
 
-    public HBox getHbox() {
-        return hbox;
-    }
 
     public void setMain(Main main) {
         this.main = main;
@@ -34,13 +32,34 @@ public class Controller implements Initializable {
         return tilepane;
     }
 
-    @FXML
-    private Button startButton = new Button();
+    public void setNextIteration(){
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        startButton.setOnAction(event -> {
+      //  startButton.setOnAction(event -> {
           //  initBoard();
-        });
+       // }
     }
+
+    @FXML
+    public void handleNextIteration(){
+        //calculateNewStates();
+        //updateCellColours();
+
+
+
+        System.out.println("buuton geht");
+
+    }
+
+    @FXML
+    public void handleStart() {
+
+        main.createInitPopulation();
+
+    }
+
+
 }

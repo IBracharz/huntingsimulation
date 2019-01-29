@@ -43,19 +43,17 @@ public class Main extends Application {
         fillBoard();
 
         //assign state to two cells;
-        assignStates();
     }
 
-    public void assignStates() {
-        board.getCell(30,30).setCurrentState(1);
-        board.getCell(29,31).setCurrentState(1);
-
-
-        board.getCell(30,30).updateRec();
-        board.getCell(29,31).updateRec();
-
-
-    }
+    public void createInitPopulation() {
+        for(int i = 0; i < board.getBoard().length; i++) {
+            for (int j = 0; j < board.getBoard()[i].length; j++) {
+                int A = (int) (Math.random()*6+1);
+                board.getCell(i, j).setCurrentState((int) (Math.random() * 6 + 1 ));
+                board.getCell(i, j).updateRec();
+            }
+        }
+     }
 
     public void fillBoard() {
         int a = (int) controller.getTilepane().getHeight()/10;
@@ -89,6 +87,7 @@ public class Main extends Application {
 
 
             Scene myScene = new Scene(root);
+            primaryStage.setResizable(false);
             primaryStage.setScene(myScene);
             primaryStage.setTitle("Simulation");
             primaryStage.show();

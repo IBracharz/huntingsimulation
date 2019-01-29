@@ -19,9 +19,6 @@ public class Cell {
         rec.setStroke(Color.BLACK);
     }
 
-    public int getCurrentState() {
-        return currentState;
-    }
 
     public void setCurrentState(int currentState) {
         this.currentState = currentState;
@@ -33,9 +30,25 @@ public class Cell {
     }
 
     public void updateRec(){
-        if(currentState==1){
+        if(currentState==0){
+            rec.setFill(Color.WHITE);
+        }
+        else if(currentState==1){
             rec.setFill(Color.BLUE);
         }
+        else if(currentState==2){
+            rec.setFill(Color.YELLOW);
+        }
+        else if(currentState==3){
+            rec.setFill(Color.BROWN);
+        }
+        else if(currentState==4){
+            rec.setFill(Color.BLACK);
+        }
+        else if(currentState==5){
+            rec.setFill(Color.RED);
+        }
+        return;
     }
 
     public void setVisibilityRadius() {
@@ -44,7 +57,27 @@ public class Cell {
         }
     }
 
-    public Rectangle getRec(){
+    public Rectangle getRec() {
         return rec;
     }
+
+    public void setNextState(int nextState) {
+        this.nextState = nextState;
+    }
+
+    public int getNextState() {
+        return nextState;
+    }
+
+    public int getCurrentState() {
+        return currentState;
+    }
+
+    public void ChangeState(){
+        currentState = nextState;
+        updateRec();
+        nextState=0;
+    }
+
+
 }
