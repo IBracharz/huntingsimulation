@@ -59,6 +59,5 @@ public class Board {
         return this.cells;
     }
 
-
 }
 

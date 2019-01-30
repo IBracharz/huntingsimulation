@@ -7,10 +7,8 @@ package environment;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 
-public class Cell {
+public abstract class Cell {
 
-    //X/Y coordinate ?
-    float x,y;
     private int currentState = 0;
     private int nextState;
     private Rectangle rec;
@@ -57,6 +55,14 @@ public class Cell {
         if(this.currentState==1) {
             this.visibilityRadius = 3;
         }
+    }
+
+    public void setXPosition(int i) {
+        this.x=i;
+    }
+
+    public void setYPosititon(int i) {
+        this.y=i;
     }
 
     public Rectangle getRec() {

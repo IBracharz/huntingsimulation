@@ -10,8 +10,8 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
-
-    public Main main;
+    //create main object to access methods in that class
+    private Main main;
     @FXML private BorderPane root;
     @FXML private TilePane tilepane;
     @FXML private Button nextIteration;
@@ -50,4 +50,51 @@ public class Controller implements Initializable {
     public void populateAutomaton(){
         main.createInitPopulation();
     }
+
+    @FXML
+    public void handleClearCells(){
+        main.clearCells();
+    }
+
+    @FXML
+    public void handlehOne(){
+        //function to test first hunting situations
+        main.fillHuntingPopulation();
+
+    }
+
+    @FXML
+    public void handlehTwo(){
+
+        //hOne
+
+
+    }
+
+    @FXML
+    public void handleSolitaryHunterColor(){
+
+    }
+
+    @FXML
+    public void handlePackHunterColor(){
+
+    }
+
+    @FXML
+    public void handleSmallPreyColor(){
+
+    }
+
+    @FXML
+    public void handleMediumPreyColor(){
+
+    }
+
+    @FXML
+    public void handleLargePreyColor(){
+
+    }
+
+
 }
