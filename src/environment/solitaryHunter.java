@@ -1,38 +1,21 @@
 package environment;
 
+
 import javafx.scene.image.Image;
-import sample.Main;
 
-public class solitaryHunter extends Cell {
+public class solitaryHunter extends AbstractPredator {
 
-    private Main main;
+    private final static Image icon = new Image("environment/bear.jpeg");
 
-    private int predatorSpeed = 1;
-    private int health = 1;
-    //final Image = "";
 
-    public void move(){
+    solitaryHunter(){
+        super(100.0,1,15,5);
 
     }
 
-    public Main getMain() {
-        return main;
-    }
-
-    public void hunt(){
-
-    }
-
-    public void howhl(){
-
-    }
-
-    public void dosomething(){
-
-    }
-
-    public void moveUp(){
-        
+    @Override
+    public Image getIcon() {
+        return icon;
     }
 
 }

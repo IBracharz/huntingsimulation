@@ -2,6 +2,7 @@ package sample;
 
 import environment.Board;
 import environment.Cell;
+import environment.PackHunter;
 import environment.solitaryHunter;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,11 +10,11 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import javax.swing.text.html.ImageView;
 import java.io.IOException;
 
-// import javafx.animation.Timeline; -->used to update a nodes properties, such as color, size etc. only need to update the centerPane(TilePane) with this.
 /*
-TODO: implement periodic boundarys
+TODO: implement boundarys
 TODO: implement "next Iteration Button"
  */
 
@@ -22,7 +23,7 @@ public class Main extends Application {
 
     private Stage primaryStage;
     private Controller controller;
-    private Board board;
+    public Board board;
 
 
     @Override
@@ -35,11 +36,25 @@ public class Main extends Application {
         //create emtpy board and add to view
         createBoard();
 
-        fillHuntingPopulation();
-        fillPreyPopulation();
+        //fillHuntingPopulation();
+       // fillPreyPopulation();
 
     }
 
+    public void updateBoard(){
+
+        for(int i = 0; i < board.getBoard().length; i++) {
+            for(int j = 0; j < board.getBoard()[i].length; j++) {
+                if(board.getCell(i,j).getClass().toString()=="environment.PackHunter") {
+                   //ImageView img = board.getCell(i,j)
+
+                }
+            }
+        }
+
+    }
+
+    /*
     public void fillHuntingPopulation(){
         Cell a = board.getCell(30,30);
         a = new solitaryHunter();
@@ -50,9 +65,9 @@ public class Main extends Application {
     public void fillPreyPopulation(){
 
     }
+*/
 
-
-
+/*
     //assignes random states between 0 and 6 to cells and updates their colour
     public void createInitPopulation() {
         for(int i = 1; i < board.getBoard().length; i++) {
@@ -74,12 +89,14 @@ public class Main extends Application {
         }
         return;
     }
+*/
+
 
     public void createBoard() {
-        int a = (int) controller.getTilePane().getHeight()/10;
-        int b = (int) controller.getTilePane().getWidth()/10;
+        int XDim = (int) controller.getTilePane().getHeight()/10;
+        int YDim = (int) controller.getTilePane().getWidth()/10;
 
-        board = new Board((int) controller.getTilePane().getWidth()/10,(int)controller.getTilePane().getHeight()/10);
+        board = new Board(XDim,YDim);
 
         controller.getTilePane().setPrefTileWidth(10);
         controller.getTilePane().setPrefTileHeight(10);
@@ -87,6 +104,7 @@ public class Main extends Application {
 
         for(int i = 0; i < board.getBoard().length; i++) {
             for(int j = 0; j < board.getBoard()[i].length; j++) {
+                //TODO: why does getRec() work ? is method of abstract class cell, not EmptyCell()
                 controller.getTilePane().getChildren().add(board.getCell(i,j).getRec());
             }
         }
@@ -109,7 +127,9 @@ public class Main extends Application {
     }
 
     public void mainWindow() {
+
         try {
+
             FXMLLoader loader = new FXMLLoader(Main.class.getResource("sample.fxml"));
             Parent root = loader.load();
 
@@ -139,6 +159,7 @@ public class Main extends Application {
 
     //starting point of application
     public static void main(String[] args) {
-    launch(args);
+
+        launch(args);
     }
 }

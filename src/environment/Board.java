@@ -22,8 +22,6 @@ board lifecycle:
 
 
  */
-
-
 package environment;
 
 public class Board {
@@ -42,7 +40,8 @@ public class Board {
         // create Cell object in each element of board
         for (int i = 0; i < cells.length; i++) {
             for(int j = 0; j  < cells[i].length; j++){
-                this.cells[i][j] = new Cell();
+                //TODO:Why does this work ? I don't know...
+                this.cells[i][j] = new EmptyCell();
             }
         }
     }

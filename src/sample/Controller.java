@@ -1,5 +1,7 @@
 package sample;
 
+import environment.Cell;
+import environment.PackHunter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -36,7 +38,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void handleNextIteration(){
+    public void handleNextIteration() {
         System.out.println("buuton geht");
         main.calculateNextGeneration();
 
@@ -44,22 +46,23 @@ public class Controller implements Initializable {
 
     @FXML
     public void handleStart() {
+
     }
 
     @FXML
     public void populateAutomaton(){
-        main.createInitPopulation();
+       // main.createInitPopulation();
     }
 
     @FXML
     public void handleClearCells(){
-        main.clearCells();
+      //  main.clearCells();
     }
 
     @FXML
     public void handlehOne(){
         //function to test first hunting situations
-        main.fillHuntingPopulation();
+        //main.fillHuntingPopulation();
 
     }
 
