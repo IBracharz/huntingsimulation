@@ -1,7 +1,5 @@
 package sample;
 
-import environment.Cell;
-import environment.PackHunter;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -20,16 +18,18 @@ public class Controller implements Initializable {
     @FXML private Button startButton;
     @FXML private Button populateAutomatonButton;
 
-    public void setMain(Main main) {
+    public void setMain(Main main)
+    {
         this.main = main;
     }
 
-
-    public BorderPane getRoot() {
+    public BorderPane getRoot()
+    {
         return root;
     }
 
-    public TilePane getTilePane() {
+    public TilePane getTilePane()
+    {
         return tilepane;
     }
 
@@ -45,13 +45,14 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void handleStart() {
-
+    public void handleStart()
+    {
     }
 
     @FXML
-    public void populateAutomaton(){
-       // main.createInitPopulation();
+    public void populateAutomaton()
+    {
+        //main.createFirstGeneration();
     }
 
     @FXML
@@ -60,42 +61,43 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    public void handlehOne(){
-        //function to test first hunting situations
-        //main.fillHuntingPopulation();
+    public void handlehOne()
+    {
+    }
+
+    @FXML
+    public void handlehTwo()
+    {
 
     }
 
     @FXML
-    public void handlehTwo(){
-
-        //hOne
-
+    public void handleSolitaryHunterColor()
+    {
 
     }
 
     @FXML
-    public void handleSolitaryHunterColor(){
+    public void handlePackHunterColor()
+    {
 
     }
 
     @FXML
-    public void handlePackHunterColor(){
+    public void handleSmallPreyColor()
+    {
 
     }
 
     @FXML
-    public void handleSmallPreyColor(){
+    public void handleMediumPreyColor()
+    {
 
     }
 
     @FXML
-    public void handleMediumPreyColor(){
-
-    }
-
-    @FXML
-    public void handleLargePreyColor(){
+    public void handleLargePreyColor()
+    {
 
     }
 
