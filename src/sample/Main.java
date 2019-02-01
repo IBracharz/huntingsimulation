@@ -11,13 +11,18 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * @version 1.0
- * @author Ivo Bracharz
- * @see Main
+ * BlablathisandThat
+ * dsa
+ * dsa
+ * dsa
+ * dsa
  *
+ *
+ * @author Ivo Bracharz
+ * @version 1.0
  * @date 2019/01/20
+ *
  */
-
 
 public class Main extends Application
 {

@@ -1,30 +1,20 @@
-/*
-Our Cellular system needs the basic ingredients
-1. Assign the cellular space. 3 by 3
-2. Assign the time variable.
-3. Assign the neighborhood.
-4. Assign the state set.
-5. Assign the transition rule.
-6. Assign the boundary conditions.
-7. Assign the initial condition.
-8. Assign a stopping condition.
-9. Proceed to update the state of
-the cells until the stopping condition
-is met.
- */
-
-
-/*
-board lifecycle:
-1.at start of application create and init the board
-2.update board each iteration
-3.delete board when application closes.
-
-
- */
 package environment;
 
 import Agents.PredatorAgent;
+
+/**
+ * BlablathisandThat
+ * dsa
+ * dsa
+ * dsa
+ * dsa
+ *
+ *
+ * @author Ivo Bracharz
+ * @version 1.0
+ * @date 2019/01/20
+ *
+ */
 
 public class Board
 {

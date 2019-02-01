@@ -3,11 +3,17 @@ package Agents;
 import environment.EmptyCell;
 
 /**
+ * BlablathisandThat
+ * dsa
+ * dsa
+ * dsa
+ * dsa
  *
- * @version 1.0
+ *
  * @author Ivo Bracharz
- * @see Agents.AbstractAgent
- * @see
+ * @version 1.0
+ * @date 2019/01/20
+ *
  */
 
 public abstract class AbstractAgent extends EmptyCell {

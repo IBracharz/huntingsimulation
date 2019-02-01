@@ -3,17 +3,18 @@ package Agents;
 import javafx.scene.paint.Color;
 
 /**
- * @version 1.0
- * @author Ivo Bracharz
- * @see PredatorAgent
+ * The PredaorAgent class is one specification of the AbstractAgent class.
+ * It defines the members and behaviour one of our Agents has.
+ * dsa
+ * dsa
+ * dsa
  *
+ *
+ * @author Ivo Bracharz
+ * @version 1.0
  * @date 2019/01/20
  *
- *The PredaorAgent class is one specification of the AbstractAgent class.
- *It defines the members and behavour one of our Agents has.
- *
  */
-
 
 public class PredatorAgent extends AbstractAgent {
 
